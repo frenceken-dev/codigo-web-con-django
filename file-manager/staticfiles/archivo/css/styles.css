@@ -1,0 +1,19 @@
+.body {
+    background-color:black; 
+    color:white;
+}
+
+.h1 {
+    font-size: 14;
+    color: darkgrey;
+}
+
+.lista_archivos {
+    color: orangered;
+    background-color: orange;
+}
+
+.container {
+    background-color: black;
+    color: azure;
+}
