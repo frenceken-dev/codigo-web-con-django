@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Mis Archivos{% endblock %}
+
+{% block content %}
+<h1 class="h1">Mis Archivos</h1>
+
+<div class="lista_archivos">
+    {% for archivo in archivos %}
+        <div class="archivo-item">
+            <div class="archivo-preview">
+                {% if archivo.tipo == 'imagen' %}
+                    <img src="{{ archivo.archivo.url }}" alt="Imagen" class="preview-img">
+                {% elif archivo.tipo == 'video' %}
+                    <video class="preview-video" controls>
+                        <source src="{{ archivo.archivo.url }}" type="video/mp4">
+                        Tu navegador no soporta video.
+                    </video>
+                {% else %}
+                    📄 {{ archivo.archivo.name }}
+                {% endif %}
+            </div>
+
+            <div class="archivo-info">
+                <p>{{ archivo.descripcion }} - {{ archivo.tipo }} - Subido el {{ archivo.fecha_subida }}</p>
+                <div class="archivo-botones">
+                    <a href="{{ archivo.archivo.url }}" target="_blank" class="btn btn-primary btn-sm">Ver archivo</a>
+
+                    <form method="POST" action="{% url 'eliminar_archivo' archivo.id %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que deseas eliminar este archivo?');">Eliminar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

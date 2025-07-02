@@ -1,0 +1,42 @@
+# ============================
+# Entornos virtuales
+# ============================
+env/
+venv/
+
+# ============================
+# Archivos de Python compilados y temporales
+# ============================
+__pycache__/
+*.py[cod]
+*.so
+*.log
+
+# ============================
+# Archivos y carpetas de Django
+# ============================
+
+# Base de datos local
+*.sqlite3
+
+# Archivos subidos por usuarios (media)
+media/
+
+# Archivos generados por collectstatic
+staticfiles/
+
+# ============================
+# Archivos del sistema y editores
+# ============================
+.DS_Store
+Thumbs.db
+
+# VSCode / PyCharm
+.vscode/
+.idea/
+
+# ============================
+# Archivos de entorno y variables
+# ============================
+*.env
+.env
